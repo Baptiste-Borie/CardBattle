@@ -3,9 +3,12 @@ package cardBattle.src;
 import java.util.*;
 
 /**
- * La classe Bataille représente une partie de jeu de cartes entre deux joueurs.
- * Elle permet de distribuer des cartes, de jouer des tours, et de gérer les
- * situations de "bataille".
+ * @author Baptiste Borie
+ *         La classe Bataille représente une partie de jeu de cartes entre deux
+ *         joueurs.
+ *         Elle permet de distribuer des cartes, de jouer des tours, et de gérer
+ *         les
+ *         situations de "bataille".
  */
 public class Bataille {
 
