@@ -65,14 +65,12 @@ public class Bataille {
             j1.getCards().add(c1);
             j1.getCards().add(c2);
             removePickedCard();
-            getStatusGame();
             attendreEntree();
         } else if (res == -1) {
             System.out.println(j2.getNom() + " remporte la manche !");
             j2.getCards().add(c1);
             j2.getCards().add(c2);
             removePickedCard();
-            getStatusGame();
             attendreEntree();
         } else {
             System.out.println("Egalité ! Bataille !");
@@ -90,6 +88,7 @@ public class Bataille {
      * @param c2 La deuxième carte impliquée dans la bataille.
      */
     public void jouerBataille(Card c1, Card c2) {
+        getStatusGame();
         Card c3 = j1.pickCard();
         Card c4 = j2.pickCard();
 
@@ -105,7 +104,6 @@ public class Bataille {
             j1.getCards().add(c3);
             j1.getCards().add(c4);
             removePickedCard();
-            getStatusGame();
             attendreEntree();
         } else if (resBataille == -1) {
             System.out.println(j2.getNom() + " remporte la manche !");
@@ -114,7 +112,6 @@ public class Bataille {
             j2.getCards().add(c3);
             j2.getCards().add(c4);
             removePickedCard();
-            getStatusGame();
             attendreEntree();
         } else {
             System.out.println("\nEgalité ! Bataille !");
@@ -166,6 +163,10 @@ public class Bataille {
      */
     public static void main(String[] args) {
         Bataille Game = new Bataille("John Carmack", "Tim Berners-Lee");
+        System.out.println(
+                "\nIl est vivement recommandé d'ouvrir le ReadMe afin de prendres conaissances des règles de jeu et des commandes de lancement \n(enfin si vous êtes la c'est que vous l'avez déjà probablement fait ... )");
+        System.out.println("Appuyez sur entrée pour continuer !");
+        Game.attendreEntree();
         Game.distribuer();
         while (Game.j1.getCards().size() > 0 && Game.j2.getCards().size() > 0) {
             Game.jouerTour();
