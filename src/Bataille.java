@@ -32,8 +32,8 @@ public class Bataille {
      */
     public void distribuer() {
         ArrayList<Card> cartes = new ArrayList<>();
-        for (String couleur : Card.couleurs) {
-            for (String valeur : Card.valeurs) {
+        for (String couleur : Card.COULEURS) {
+            for (String valeur : Card.VALEURS) {
                 cartes.add(new Card(couleur, valeur));
             }
         }
@@ -117,7 +117,7 @@ public class Bataille {
             getStatusGame();
             attendreEntree();
         } else {
-            System.out.println("Egalité ! Bataille !");
+            System.out.println("\nEgalité ! Bataille !");
             removePickedCard();
             jouerBataille(c3, c4);
             attendreEntree();

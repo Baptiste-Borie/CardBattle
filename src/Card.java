@@ -10,9 +10,9 @@ import java.util.Arrays;
  */
 public class Card {
 
-    protected static String[] couleurs = { "coeur", "carreau", "pique", "trefle"
+    protected static String[] COULEURS = { "coeur", "carreau", "pique", "trefle"
     };
-    protected static String[] valeurs = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "valet", "dame", "roi",
+    protected static String[] VALEURS = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "valet", "dame", "roi",
             "as" };
 
     private String couleur;
@@ -30,13 +30,13 @@ public class Card {
      */
     public Card(String couleur, String valeur) {
 
-        if (!Arrays.asList(couleurs).contains(couleur)) {
+        if (!Arrays.asList(COULEURS).contains(couleur)) {
             throw new IllegalArgumentException(
                     "Couleur invalide : " + couleur + ". Les couleurs valides sont : " +
-                            Arrays.toString(couleurs));
+                            Arrays.toString(COULEURS));
         }
         boolean found = false;
-        for (String value : valeurs) {
+        for (String value : VALEURS) {
             if (value == valeur) {
                 found = true;
                 break;
@@ -45,7 +45,7 @@ public class Card {
         if (!found) {
             throw new IllegalArgumentException(
                     "Valeur invalide : " + valeur + ". Les valeurs valides sont : " +
-                            Arrays.toString(valeurs));
+                            Arrays.toString(VALEURS));
         }
 
         this.couleur = couleur;
@@ -77,9 +77,9 @@ public class Card {
      * @throws IllegalArgumentException Si la couleur spécifiée est invalide.
      */
     public void setCouleur(String couleur) {
-        if (!Arrays.asList(couleurs).contains(couleur)) {
+        if (!Arrays.asList(COULEURS).contains(couleur)) {
             throw new IllegalArgumentException(
-                    "Couleur invalide : " + couleur + ". Les couleurs valides sont : " + Arrays.toString(couleurs));
+                    "Couleur invalide : " + couleur + ". Les couleurs valides sont : " + Arrays.toString(COULEURS));
         }
         this.couleur = couleur;
     }
@@ -92,7 +92,7 @@ public class Card {
      */
     public void setValeur(String valeur) {
         boolean found = false;
-        for (String value : valeurs) {
+        for (String value : VALEURS) {
             if (value == valeur) {
                 found = true;
                 break;
@@ -101,7 +101,7 @@ public class Card {
         if (!found) {
             throw new IllegalArgumentException(
                     "Valeur invalide : " + valeur + ". Les valeurs valides sont : " +
-                            Arrays.toString(valeurs));
+                            Arrays.toString(VALEURS));
         }
 
         this.valeur = valeur;
@@ -129,8 +129,8 @@ public class Card {
      *         paramètres.
      */
     public int Compare(Card c) {
-        int thisIndex = Arrays.asList(valeurs).indexOf(this.getValeur());
-        int otherIndex = Arrays.asList(valeurs).indexOf(c.getValeur());
+        int thisIndex = Arrays.asList(VALEURS).indexOf(this.getValeur());
+        int otherIndex = Arrays.asList(VALEURS).indexOf(c.getValeur());
         if (thisIndex == otherIndex) {
             return 0; // equal
         } else if (thisIndex > otherIndex) {
